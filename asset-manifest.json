@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/todo-list-v2/static/css/main.9cc5e7f8.css",
+    "main.js": "/todo-list-v2/static/js/main.14e66442.js",
+    "index.html": "/todo-list-v2/index.html",
+    "static/media/ok-icon.svg": "/todo-list-v2/static/media/ok-icon.fa069eb2c6f3910a9513.svg",
+    "main.9cc5e7f8.css.map": "/todo-list-v2/static/css/main.9cc5e7f8.css.map",
+    "main.14e66442.js.map": "/todo-list-v2/static/js/main.14e66442.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9cc5e7f8.css",
+    "static/js/main.14e66442.js"
+  ]
+}
