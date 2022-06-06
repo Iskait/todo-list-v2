@@ -1,0 +1,33 @@
+.footer {
+    padding: 20px;
+    &__container {}
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__btn {
+        color: #fff;
+        background-color: rgba(252, 51, 51);
+        padding: 10px 30px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        opacity: 0.8;
+        flex: 0 1 40%;
+        transition: opacity 0.4s;
+        &:hover {
+            opacity: 1;
+        }
+        &.done {
+        }
+        &.all {
+        }
+        @media(max-width: 383px) {
+            padding: 10px;
+        }
+    }
+}
+
+
