@@ -18,8 +18,13 @@ const todoSlise = createSlice({
                 id: nanoid(),
                 text: action.payload.text,
                 completed: false,
+                added: false,
             })
             changeArrays(state)
+        },
+        alreadyAdded(state, action) {
+            const todo = state.all.find(todo=>todo.id === action.payload.id);
+            todo.added = !todo.added;
         },
         removeTodo(state, action) {
             state.all = state.all.filter(todo=>todo.id !== action.payload.id);
@@ -47,7 +52,8 @@ const todoSlise = createSlice({
 })
 
 export const {
-    addTodo, 
+    addTodo,
+    alreadyAdded, 
     removeTodo, 
     toggleTodoComplete, 
     deleteDoneTasks,

@@ -1,18 +1,31 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { editTodo } from "../redux/slices/todoSlice";
 
 
-function Todo({ todo, handleCompleteTask, handleDelete }) {
+function Todo({ todo, handleCompleteTask, handleDelete, columnRef }) {
   const [edit, setEdit] = useState(false);
   const [text, setText] = useState(todo.text);
   const inputRef = useRef();
+  const rowRef = useRef();
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (todo.added) {
+      rowRef.current.classList.add('already-add');
+      columnRef.current.scrollTo({
+        top: rowRef.current.getBoundingClientRect().top,
+        left: 0,
+        behavior: 'smooth',
+      })
+    } else {
+      rowRef.current.classList.remove('already-add');
+    }
+  }, [todo.added, columnRef])
 
   const handleBlur = () => {
     setTimeout(handleEdit, 200);
   };
-
+  
   const toggleEdit = () => {
     setEdit(true);
   };
@@ -52,6 +65,7 @@ function Todo({ todo, handleCompleteTask, handleDelete }) {
 
   return (
     <div
+      ref={rowRef}
       className="todolist__row"
       style={{ opacity: todo.completed ? "0.5" : "1" }}
     >
