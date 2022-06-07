@@ -6,6 +6,7 @@
         color: #000;
         margin-bottom: 5px;
         text-align: right;
+        padding-right: 15px;
     }
     &__column {
         max-height: 430px;
@@ -26,7 +27,7 @@
             border-radius: 8px;
             border: 3px solid #d4d4d4;
         }
-        padding-right: 10px;
+        padding: 0 10px;
     }
 
     &__row {
