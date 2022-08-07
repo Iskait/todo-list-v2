@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-sorted {
+  @apply flex-[0_1_30%] rounded-md p-3 text-white transition-colors bg-sky-600;
+  &.active {
+    @apply bg-sky-800;
+  }
+}
+
+.todo-list-column {
+    max-height: 430px;
+    overflow: auto;
+    padding: 0px 10px;
+    &::-webkit-scrollbar {
+        display: none;
+        width: 15px;
+    }
+    &:hover::-webkit-scrollbar {
+        display: block;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #d4d4d4;
+        box-shadow: 0 0 2px rgba(0,0,0,.2) inset;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #939393;
+        border-radius: 8px;
+        border: 3px solid #d4d4d4;
+    }
+}
+
+.todo-list-btn {
+  @apply bg-cover w-5 h-5;
+}
+
+.already-add {
+  animation: pulsar 0.5s linear 0s 2;
+}
+
+@keyframes pulsar {
+  50% {
+      transform: scale(1.015);
+      border: 2px solid rgb(152, 4, 4);
+  } 100% {
+      transform: scale(1);
+      border: 1px solid rgba(156, 156, 156, 0.8);
+  }
+}
+.footer-btn {
+  @apply text-white bg-red-600 py-3 px-7 rounded-md flex-[0_1_40%] transition-opacity hover:opacity-80;
+}
