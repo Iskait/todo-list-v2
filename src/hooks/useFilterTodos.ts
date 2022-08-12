@@ -1,13 +1,13 @@
-import { useAppSelector } from "./reduxHooks";
+import useAppSelector from "./useAppSelector";
 import { ITodo } from "../store/slices/todoSlice";
 export const useFilterTodos = () => {
-  const todos = useAppSelector(state => state.todolist.todos);
-  const filter = useAppSelector(state => state.filter);
-  const fn =
+  const todos = useAppSelector((state) => state.todolist.todos);
+  const filter = useAppSelector((state) => state.filter);
+  const fn = (todo: ITodo) =>
     filter === "todo"
-      ? (todo: ITodo) => !todo.completed
+      ? !todo.completed
       : filter === "done"
-      ? (todo: ITodo) => todo.completed
-      : (todo: ITodo) => todo;
+      ? todo.completed
+      : todo;
   return [...todos.filter(fn)].reverse();
 };

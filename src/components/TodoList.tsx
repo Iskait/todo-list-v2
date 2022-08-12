@@ -1,6 +1,7 @@
 import Todo from "./Todo";
 import { useRef } from "react";
 import { useFilterTodos } from "../hooks/useFilterTodos";
+
 const TodoList: React.FC = () => {
   const columnRef = useRef<HTMLUListElement>(null);
   const todos = useFilterTodos();

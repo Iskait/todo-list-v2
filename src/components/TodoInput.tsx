@@ -1,30 +1,29 @@
 import { useRef } from "react";
-import { useAppSelector, useAppDispatch } from "../hooks/reduxHooks";
-import { addTodo, alreadyAdded } from "../store/slices/todoSlice";
-import { addTask, clearTask } from "../store/slices/taskSlice";
+import useActions from "../hooks/useActions";
+import useAppSelector from "../hooks/useAppSelector";
 
 const TodoInput: React.FC = () => {
-  const dispatch = useAppDispatch();
   const text = useAppSelector((state) => state.task);
   const todo = useAppSelector((state) =>
     state.todolist.todos.find((todo) => todo.text === text)
   );
+  const { addTodo, alreadyAdded, addTask, clearTask } = useActions();
   const inputRef = useRef<HTMLInputElement>(null);
   const handleAdd = () => {
     if (!text.trim().length) {
       return;
     } else if (todo) {
-      dispatch(alreadyAdded(todo.id));
-      setTimeout(() => dispatch(alreadyAdded(todo.id)), 1000);
+      alreadyAdded(todo.id);
+      setTimeout(() => alreadyAdded(todo.id), 1000);
       handleClear();
       return;
     }
-    dispatch(addTodo(text));
+    addTodo(text);
     handleClear();
   };
 
   const handleClear = () => {
-    dispatch(clearTask());
+    clearTask();
     inputRef.current!.focus();
   };
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -40,7 +39,7 @@ const TodoInput: React.FC = () => {
           type="text"
           placeholder="add new task..."
           value={text}
-          onChange={(e) => dispatch(addTask(e.target.value))}
+          onChange={(e) => addTask(e.target.value)}
           onKeyDown={handleKeyDown}
         />
         {text.length > 0 && (
