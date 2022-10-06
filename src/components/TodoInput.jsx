@@ -1,18 +1,26 @@
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo } from '../redux/slices/todoSlice';
+import { addTodo, alreadyAdded } from '../redux/slices/todoSlice';
 import { addTask, clearTask } from '../redux/slices/taskSlice';
 
 function TodoInput() {
     const dispatch = useDispatch();
-    const text = useSelector(state=>state.task);    
+    const text = useSelector(state=>state.task); 
+    const todo = useSelector(state => state.todolist.all).find(todo=> todo.text === text);   
     const inputRef = useRef();
 
     const handleAdd = () => {
         if (!text.trim().length) return;
+        else if (todo) {
+            dispatch(alreadyAdded({id:todo.id}));
+            setTimeout(() => dispatch(alreadyAdded({id:todo.id})), 1000);
+            handleClear();
+            return;
+        }
         dispatch(addTodo({text}));
         handleClear();
     }
+    
     const handleClear = () => {
         dispatch(clearTask());
         inputRef.current.focus();

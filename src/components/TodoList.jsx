@@ -1,8 +1,10 @@
+import { useRef } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTodoComplete, removeTodo } from "../redux/slices/todoSlice";
 import Todo from "./Todo";
 
 function TodoList() {
+  const columnRef = useRef();
   const todos = useSelector((state) => state.todolist[state.filter]);
   const count = useSelector((state) => state.todolist.todo).length;
   const dispatch = useDispatch();
@@ -16,7 +18,9 @@ function TodoList() {
     <div className="todolist">
       <div className="todolist__container _container">
         <h2 className="todolist__title">Todos left: {count}</h2>
-        <ul className="todolist__column">
+        <ul 
+        className="todolist__column"
+        ref={columnRef}>
           {todos.map((todo) => {
             return (
               <Todo
@@ -24,6 +28,7 @@ function TodoList() {
                 todo={todo}
                 handleCompleteTask={handleCompleteTask}
                 handleDelete={handleDelete}
+                columnRef={columnRef}
               />
             );
           })}
