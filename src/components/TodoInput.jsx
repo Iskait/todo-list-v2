@@ -6,9 +6,8 @@ import { addTask, clearTask } from '../redux/slices/taskSlice';
 function TodoInput() {
     const dispatch = useDispatch();
     const text = useSelector(state=>state.task); 
-    const todo = useSelector(state => state.todolist.all).find(todo=> todo.text === text);   
+    const todo = useSelector(state => state.todolist.all.find(todo=> todo.text === text));
     const inputRef = useRef();
-
     const handleAdd = () => {
         if (!text.trim().length) return;
         else if (todo) {
