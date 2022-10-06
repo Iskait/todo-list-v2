@@ -10,6 +10,6 @@ const filterSlice = createSlice({
   },
 });
 
-export const { showAll, showTodo, showDone } = filterSlice.actions;
+export const filterActions = filterSlice.actions;
 
 export default filterSlice.reducer;

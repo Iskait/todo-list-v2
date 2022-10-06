@@ -50,14 +50,6 @@ const todoSlise = createSlice({
   },
 });
 
-export const {
-  addTodo,
-  alreadyAdded,
-  removeTodo,
-  toggleTodoComplete,
-  deleteDoneTasks,
-  deleteAllTasks,
-  editTodo,
-} = todoSlise.actions;
+export const todoActions = todoSlise.actions;
 
 export default todoSlise.reducer;

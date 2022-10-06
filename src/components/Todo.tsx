@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { useAppDispatch } from "../hooks/reduxHooks";
-import { editTodo, toggleTodoComplete, removeTodo, ITodo } from "../store/slices/todoSlice";
+import useActions from "../hooks/useActions";
+import { ITodo } from "../store/slices/todoSlice";
 
 interface ITodoProps {
   todo: ITodo;
@@ -11,12 +11,13 @@ const Todo: React.FC<ITodoProps> = ({ todo, columnRef }) => {
   const [edit, setEdit] = useState(false);
   const [text, setText] = useState(todo.text);
   const rowRef = useRef<HTMLDivElement>(null);
-  const dispatch = useAppDispatch();
+  const { editTodo, toggleTodoComplete, removeTodo } = useActions();
+
   const handleCompleteTask = (id: string) => {
-    dispatch(toggleTodoComplete(id));
+    toggleTodoComplete(id);
   };
   const handleDelete = (id: string) => {
-    dispatch(removeTodo(id));
+    removeTodo(id);
   };
   useEffect(() => {
     if (todo.added) {
@@ -40,7 +41,7 @@ const Todo: React.FC<ITodoProps> = ({ todo, columnRef }) => {
   };
 
   const handleEdit = () => {
-    dispatch(editTodo({ id: todo.id, text }));
+    editTodo({ id: todo.id, text });
     setEdit(false);
   };
 

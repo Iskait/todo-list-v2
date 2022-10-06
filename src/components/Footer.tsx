@@ -1,16 +1,16 @@
-import { useAppDispatch } from "../hooks/reduxHooks";
-import { deleteDoneTasks, deleteAllTasks } from "../store/slices/todoSlice";
+import useActions from "../hooks/useActions";
+
 const Footer: React.FC = () => {
-  const dispatch = useAppDispatch();
+  const { deleteDoneTasks, deleteAllTasks } = useActions();
   return (
     <footer className="container flex justify-between py-4">
       <button
-        onClick={() => dispatch(deleteDoneTasks())}
+        onClick={deleteDoneTasks}
         className="footer-btn"
       >
         Delete done tasks
       </button>
-      <button onClick={() => dispatch(deleteAllTasks())} className="footer-btn">
+      <button onClick={deleteAllTasks} className="footer-btn">
         Delete all tasks
       </button>
     </footer>
