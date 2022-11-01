@@ -4,25 +4,30 @@
 
 .btn-sorted {
   @apply flex-[0_1_30%] rounded-md p-3 text-white transition-colors bg-sky-600;
-  &.active {
-    @apply bg-sky-800;
-  }
+}
+
+.btn-sorted.active {
+  @apply bg-sky-800;
 }
 
 .todo-list-column {
   @apply max-h-[430px] overflow-auto px-3;
-  &::-webkit-scrollbar {
-    @apply hidden w-4;
-  }
-  &:hover::-webkit-scrollbar {
-    @apply block;
-  }
-  &::-webkit-scrollbar-track {
-    @apply bg-[#d4d4d4] shadow-md;
-  }
-  &::-webkit-scrollbar-thumb {
-    @apply bg-[#d4d4d4] rounded-lg border-4 border-[#d4d4d4];
-  }
+}
+
+.todo-list-column::-webkit-scrollbar {
+  @apply hidden w-2;
+}
+
+.todo-list-column:hover::-webkit-scrollbar {
+  @apply block;
+}
+
+.todo-list-column::-webkit-scrollbar-track {
+  @apply bg-[#d4d4d4] shadow-md;
+}
+
+.todo-list-column::-webkit-scrollbar-thumb {
+  @apply bg-[#454545] rounded-lg;
 }
 
 .todo-list-btn {
@@ -41,6 +46,7 @@
     @apply scale-100 border border-gray-400;
   }
 }
+
 .footer-btn {
   @apply text-white bg-red-600 py-3 px-7 rounded-md flex-[0_1_40%] transition-opacity hover:opacity-80;
 }

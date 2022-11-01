@@ -5,7 +5,7 @@ module.exports = {
     screens: {
       "2xl": "1024px",
       xl: "1024px",
-      lg: "1024px",  
+      lg: "1024px",
       md: "768px",
       sm: "640px",
     },
@@ -15,10 +15,10 @@ module.exports = {
         padding: "1rem",
       },
       backgroundImage: {
-        'delete': "url('/src/assets/delete-icon.png')",
-        'edit': "url('/src/assets/edit-icon.png')",
-        'send': "url('/src/assets/ok-icon.svg')"
-      }
+        delete: "url('/src/assets/delete-icon.png')",
+        edit: "url('/src/assets/edit-icon.png')",
+        send: "url('/src/assets/ok-icon.svg')",
+      },
     },
   },
   plugins: [],

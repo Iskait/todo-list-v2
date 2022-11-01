@@ -1,4 +1,4 @@
-import "./index.scss";
+import "./index.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TodoInput from "./components/TodoInput";
@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <div className="flex flex-col h-screen w-screen overflow-scroll">
       <Header />
-      <main className="container flex-auto space-y-5">   
+      <main className="container flex-auto space-y-5">
         <TodoInput />
         <SortBy />
         <TodoList />
@@ -17,6 +17,6 @@ const App: React.FC = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
